@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lex Praxis - Bufete de Abogados con más de 25 años de experiencia">
+    <title>Bufete de Abogados</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <style>
+        /* ============================================
+           LEX PRAXIS - GRIS PLATEADO Y DORADO
+           ============================================ */
+
+        /* VARIABLES DE COLOR */
+        :root {
+            --color-primario: #C0C0C0;        /* Gris plateado */
+            --color-secundario: #D4AF37;      /* Dorado clásico */
+            --color-acento: #B8860B;          /* Dorado oscuro */
+            --color-fondo-oscuro: #2C2C2C;    /* Gris carbón */
+            --color-fondo-claro: #F5F5F5;     /* Gris muy claro */
+            --color-texto-oscuro: #1A1A1A;    /* Negro suave */
+            --color-texto-claro: #FFFFFF;     /* Blanco */
+            
+            --font-principal: 'Cinzel', Georgia, serif;
+            --font-secundaria: 'Roboto', Arial, sans-serif;
+            
+            --transition: all 0.3s ease;
+        }
+
+        /* RESET Y BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-secundaria);
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--color-texto-oscuro);
+            background-color: var(--color-texto-claro);
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* UTILIDADES */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .divider-gold {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-secundario), var(--color-acento));
+            margin: 20px 0;
+        }
+
+        /* BOTONES */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-family: var(--font-principal);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--color-secundario);
+            color: var(--color-texto-oscuro);
+            border-color: var(--color-secundario);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-acento);
+            border-color: var(--color-acento);
+            color: var(--color-texto-claro);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-secundario);
+            border-color: var(--color-secundario);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-secundario);
+            color: var(--color-texto-oscuro);
+        }
+
+        /* ============================================
+           HEADER
+           ============================================ */
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--color-fondo-oscuro);
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-info a {
+            color: var(--color-secundario);
+            margin-right: 20px;
+            transition: var(--transition);
+        }
+
+        .contact-info a:hover {
+            color: var(--color-primario);
+        }
+
+        .contact-info i {
+            margin-right: 5px;
+        }
+
+        .social-links a {
+            color: var(--color-primario);
+            margin-left: 15px;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--color-secundario);
+            transform: translateY(-2px);
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            background: linear-gradient(135deg, var(--color-fondo-oscuro) 0%, #3A3A3A 100%);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-fixed {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 9999;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            color: var(--color-primario);
+            font-family: var(--font-principal);
+            font-weight: 500;
+            font-size: 16px;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-secundario);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--color-secundario);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--color-secundario);
+            margin: 3px 0;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, rgba(44, 44, 44, 0.85) 0%, rgba(58, 58, 58, 0.9) 100%),
+                        url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1920') center/cover no-repeat;
+            color: var(--color-texto-claro);
+            text-align: center;
+            margin-top: 120px;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(28, 28, 28, 0.4);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-principal);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--color-secundario);
+            margin-bottom: 10px;
+        }
+
+        .hero-title {
+            font-family: var(--font-principal);
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--color-primario);
+            margin: 20px 0;
+            text-transform: uppercase;
+        }
+
+        .hero-description {
+            font-size: 20px;
+            color: var(--color-fondo-claro);
+            margin-bottom: 30px;
+        }
+
+        /* ============================================
+           SERVICIOS PRINCIPALES
+           ============================================ */
+        .services-main {
+            padding: 80px 0;
+            background: var(--color-fondo-claro);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: var(--color-texto-claro);
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .service-icon {
+            margin-bottom: 20px;
+        }
+
+        .service-icon i {
+            font-size: 64px;
+            color: var(--color-secundario);
+        }
+
+        .service-card h3 {
+            font-family: var(--font-principal);
+            font-size: 24px;
+            color: var(--color-fondo-oscuro);
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           SERVICIOS ADICIONALES
+           ============================================ */
+        .services-additional {
+            padding: 80px 0;
+            background: var(--color-texto-claro);
+        }
+
+        .services-icons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .service-icon-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--color-fondo-claro);
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .service-icon-item:hover {
+            background: var(--color-secundario);
+            transform: scale(1.05);
+        }
+
+        .service-icon-item i {
+            font-size: 48px;
+            color: var(--color-secundario);
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+
+        .service-icon-item:hover i {
+            color: var(--color-fondo-oscuro);
+        }
+
+        .service-icon-item h4 {
+            font-family: var(--font-principal);
+            font-size: 16px;
+            color: var(--color-fondo-oscuro);
+            font-weight: 600;
+        }
+
+        /* ============================================
+           QUIÉNES SOMOS
+           ============================================ */
+        .about-section {
+            padding: 80px 0;
+            background: var(--color-texto-claro);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-content h2 {
+            font-family: var(--font-principal);
+            font-size: 42px;
+            color: var(--color-secundario);
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* ============================================
+           EXPERIENCIA
+           ============================================ */
+        .experience-section {
+            padding: 80px 0;
+            background: var(--color-fondo-claro);
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .experience-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .experience-images img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .experience-images .img-1 {
+            margin-top: 40px;
+        }
+
+        .experience-images .img-2 {
+            margin-bottom: 40px;
+        }
+
+        .experience-content h2 {
+            font-family: var(--font-principal);
+            font-size: 42px;
+            color: var(--color-fondo-oscuro);
+            margin-bottom: 20px;
+        }
+
+        .experience-content p {
+            margin-bottom: 20px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* ============================================
+           CTA BANNER
+           ============================================ */
+        .cta-banner {
+            padding: 80px 0;
+            background: var(--color-fondo-oscuro);
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-family: var(--font-principal);
+            font-size: 48px;
+            color: var(--color-primario);
+            margin-bottom: 20px;
+        }
+
+        .cta-image {
+            width: 100%;
+            max-width: 800px;
+            margin: 30px auto 0;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        /* ============================================
+           CALL TO ACTION
+           ============================================ */
+        .cta-contact {
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--color-secundario) 0%, var(--color-acento) 100%);
+        }
+
+        .cta-box {
+            text-align: center;
+            padding: 40px;
+            border: 3px solid var(--color-primario);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-box h3 {
+            font-family: var(--font-secundaria);
+            font-size: 24px;
+            color: var(--color-texto-oscuro);
+            margin-bottom: 15px;
+        }
+
+        .cta-box h2 {
+            font-family: var(--font-principal);
+            font-size: 48px;
+            font-weight: 700;
+        }
+
+        .cta-box h2 a {
+            color: var(--color-fondo-oscuro);
+            transition: var(--transition);
+        }
+
+        .cta-box h2 a:hover {
+            color: var(--color-texto-claro);
+        }
+
+        /* ============================================
+           TESTIMONIOS
+           ============================================ */
+        .testimonials-section {
+            padding: 80px 0;
+            background: linear-gradient(180deg, rgba(44, 44, 44, 0.95) 0%, var(--color-fondo-oscuro) 100%),
+                        url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=1920') center/cover no-repeat;
+            color: var(--color-texto-claro);
+        }
+
+        .section-title {
+            font-family: var(--font-principal);
+            font-size: 48px;
+            text-align: center;
+            color: var(--color-secundario);
+            margin-bottom: 60px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--color-secundario);
+            transform: translateY(-5px);
+        }
+
+        .stars {
+            color: var(--color-secundario);
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            line-height: 1.8;
+            color: var(--color-primario);
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            font-size: 14px;
+            color: var(--color-fondo-claro);
+        }
+
+        .testimonial-author strong {
+            color: var(--color-secundario);
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .main-footer {
+            background: linear-gradient(180deg, var(--color-fondo-oscuro) 0%, #1A1A1A 100%);
+            color: var(--color-primario);
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-principal);
+            color: var(--color-secundario);
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col p {
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .footer-col a {
+            color: var(--color-secundario);
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--color-primario);
+        }
+
+        .footer-logo {
+            text-align: center;
+        }
+
+        .footer-logo img {
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        .footer-social {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .footer-social a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            background: var(--color-secundario);
+            color: var(--color-fondo-oscuro);
+            border-radius: 50%;
+            margin: 0 10px;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background: var(--color-acento);
+            color: var(--color-texto-claro);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            font-size: 14px;
+            color: var(--color-primario);
+        }
+
+        /* ============================================
+           SCROLL TO TOP
+           ============================================ */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--color-secundario);
+            color: var(--color-fondo-oscuro);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .scroll-top:hover {
+            background: var(--color-acento);
+            color: var(--color-texto-claro);
+            transform: translateY(-5px);
+        }
+
+        .scroll-top.show {
+            display: flex;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            z-index: 998;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-float:hover {
+            background: #128C7E;
+            transform: scale(1.1);
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+
+        @media (max-width: 768px) {
+            /* Header */
+            .top-bar-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 120px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 120px);
+                background: var(--color-fondo-oscuro);
+                flex-direction: column;
+                padding: 40px 20px;
+                transition: left 0.3s ease;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu a {
+                padding: 15px 0;
+                font-size: 18px;
+            }
+            
+            /* Hero */
+            .hero-section {
+                margin-top: 120px;
+                height: auto;
+                min-height: 500px;
+                padding: 60px 0;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero-description {
+                font-size: 16px;
+            }
+            
+            /* Grids */
+            .about-grid,
+            .experience-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .experience-images {
+                grid-template-columns: 1fr;
+            }
+            
+            .experience-images .img-1,
+            .experience-images .img-2 {
+                margin: 0;
+            }
+            
+            /* Typography */
+            h2 {
+                font-size: 32px !important;
+            }
+            
+            .cta-box h2 {
+                font-size: 32px;
+            }
+
+            .whatsapp-float {
+                bottom: 80px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 28px;
+            }
+            
+            .services-grid,
+            .services-icons-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header id="main-header" class="header-fixed">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-bar-content">
+                    <div class="contact-info">
+                    
+                        <a href="tel:6562808378">
+                            <i class="fas fa-phone"></i> (656) 280 8378
+                        </a>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://wa.link/l6capx" target="_blank" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.facebook.com/lexpraxisjuarez" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/lexpraxis_abogados/" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/enrique-figueroa-garcia-2ba242132/" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <nav class="main-nav">
+            <div class="container">
+                <div class="nav-content">
+                    <div class="logo">
+                        <a href="/">
+                            <img src="./img/—Pngtree—gavel and lawyer bppk 3d_15291279.png" alt="Lex Praxis Logo">
+                        </a>
+                    </div>
+                    
+                    <button class="mobile-menu-toggle" aria-label="Menú">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+
+                    <ul class="nav-menu">
+                        <li><a href="#inicio" class="active">Inicio</a></li>
+                        <li><a href="#nuestra-firma">Nuestra Firma</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                <p class="hero-subtitle">Buffete de abogados</p>
+                <div class="divider-gold" style="margin: 20px auto;"></div>
+                <h1 class="hero-title">Permítanos manejar su caso con confianza</h1>
+                <p class="hero-description">Más de 25 años protegiendo sus derechos</p>
+                <a href="#contacto" class="btn btn-primary">Agenda una consulta</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS PRINCIPALES -->
+    <section id="servicios" class="services-main">
+        <div class="container">
+            <div class="services-grid">
+                <!-- Servicio 1 -->
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Derecho Civil</h3>
+                    <p>Brindamos asesoría en derechos y obligaciones entre particulares, incluyendo contratos, propiedad, herencias y litigios civiles. Nos especializamos en resolver conflictos de manera eficaz.</p>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Derecho Mercantil</h3>
+                    <p>Asesoramos en la constitución de empresas, redacción de contratos comerciales, protección de inversiones y cumplimiento normativo. Ofrecemos apoyo en disputas mercantiles.</p>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Derecho Corporativo</h3>
+                    <p>Nos especializamos en la estructuración y gestión legal de empresas, incluyendo fusiones, adquisiciones, protección de activos y gestión de riesgos legales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS ADICIONALES -->
+    <section class="services-additional">
+        <div class="container">
+            <div class="services-icons-grid">
+                <div class="service-icon-item" data-aos="zoom-in">
+                    <i class="fas fa-gavel"></i>
+                    <h4>Derecho Penal</h4>
+                </div>
+                <div class="service-icon-item" data-aos="zoom-in" data-aos-delay="50">
+                    <i class="fas fa-landmark"></i>
+                    <h4>Derecho Administrativo</h4>
+                </div>
+                <div class="service-icon-item" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Derecho de Amparo</h4>
+                </div>
+                <div class="service-icon-item" data-aos="zoom-in" data-aos-delay="150">
+                    <i class="fas fa-phone-volume"></i>
+                    <h4>Cobranza Telefónica</h4>
+                </div>
+                <div class="service-icon-item" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-users"></i>
+                    <h4>Derecho Familiar</h4>
+                </div>
+                <div class="service-icon-item" data-aos="zoom-in" data-aos-delay="250">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h4>Cobranza en Campo</h4>
+                </div>
+                <div class="service-icon-item" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fas fa-balance-scale"></i>
+                    <h4>Profeco</h4>
+                </div>
+                <div class="service-icon-item" data-aos="zoom-in" data-aos-delay="350">
+                    <i class="fas fa-university"></i>
+                    <h4>Condusef</h4>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="#servicios" class="btn btn-secondary">Ver Servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUIÉNES SOMOS -->
+    <section id="nuestra-firma" class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800" alt="Oficina Lex Praxis">
+                </div>
+                <div class="about-content" data-aos="fade-left">
+                    <h2>Quiénes Somos</h2>
+                    <div class="divider-gold"></div>
+                    <p>En nuestro despacho jurídico, nos dedicamos a ofrecer un servicio legal confiable, profesional e inmediato, diseñado para responder de manera efectiva a las necesidades específicas de cada cliente.</p>
+                    <p>Contamos con un equipo comprometido con brindar asesoría integral en las áreas civil, familiar, mercantil y administrativa, tanto a personas físicas como morales.</p>
+                    <p>Actuamos con responsabilidad, integridad y pasión por la justicia. Creemos en una abogacía ética, cercana y comprometida con la defensa de los intereses de nuestros clientes.</p>
+                    <a href="#contacto" class="btn btn-primary">Ver más</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCIA -->
+    <section class="experience-section">
+        <div class="container">
+            <div class="experience-grid">
+                <div class="experience-images" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=400" alt="Equipo Legal 1" class="img-1">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=400" alt="Equipo Legal 2" class="img-2">
+                </div>
+                <div class="experience-content" data-aos="fade-up">
+                    <h2>Experiencia en la que puedes confiar</h2>
+                    <div class="divider-gold"></div>
+                    <p>La firma cuenta con un amplio equipo de profesionales altamente especializados en las principales áreas de práctica del derecho en México.</p>
+                    <p>Prestamos servicios en asuntos que van desde el acompañamiento del día a día de los clientes hasta la asesoría en complejos proyectos y transacciones de impacto nacional.</p>
+                    <p>Además, dicha condición nos permite asesorar a nuestros clientes en asuntos de vanguardia, aprovechando en su beneficio el conocimiento desarrollado en las diferentes jurisdicciones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner">
+        <div class="container">
+            <div class="cta-content" data-aos="zoom-in">
+                <h2>Nuestra firma luchará por usted</h2>
+                <div class="divider-gold" style="margin: 20px auto;"></div>
+                <img src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb?w=800" alt="Edificio Lex Praxis" class="cta-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="cta-contact">
+        <div class="container">
+            <div class="cta-box" data-aos="bounce">
+                <h3>Llame ahora para una consulta gratuita</h3>
+                <h2><a href="tel:6562808378">(656) 280-8378</a></h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Testimonios</h2>
+            <div class="testimonials-grid">
+                <!-- Testimonio 1 -->
+                <div class="testimonial-card" data-aos="fade-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Tuve un problema legal complejo en el área familiar y desde el primer momento sentí el respaldo del despacho. Me explicaron cada paso con claridad, me acompañaron en todo el proceso y lograron una resolución favorable."</p>
+                    <p class="testimonial-author">— <strong>Laura Gutiérrez</strong>, cliente en derecho familiar</p>
+                </div>
+
+                <!-- Testimonio 2 -->
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Como empresario, necesitaba asesoría legal constante y confiable. Este equipo no solo respondió de inmediato, sino que también me ofreció soluciones preventivas y eficaces que me ayudaron a proteger mi negocio."</p>
+                    <p class="testimonial-author">— <strong>Carlos Méndez</strong>, cliente en derecho mercantil</p>
+                </div>
+
+                <!-- Testimonio 3 -->
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Me sentí completamente respaldado. Se nota que aman lo que hacen y que su prioridad es el cliente. El trato fue cercano, pero siempre profesional. Sin duda volvería a confiar en ellos."</p>
+                    <p class="testimonial-author">— <strong>Roberto Sánchez</strong>, cliente en derecho corporativo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contacto" class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Horario -->
+                <div class="footer-col">
+                    <h4>Horario de Oficina</h4>
+                    <p>Lunes a Viernes<br>9:30 am a 6:30 pm</p>
+                    <p>Sábado<br>08:00 am a 2:30 pm</p>
+                </div>
+
+                <!-- Logo -->
+                <div class="footer-col footer-logo">
+                    <img src="./img/—Pngtree—gavel and lawyer bppk 3d_15291279.png" alt="">
+                </div>
+
+                <!-- Dirección -->
+                <div class="footer-col">
+                    <h4>Dirección</h4>
+                    <p>Av. de los Montes Urales 6131<br>La Cuesta II, 32650<br></p>
+                    <p>
+                        <a href="tel:6564073065">(656) 407 3065</a> |
+                        <a href="tel:6564641737">(656) 464 1737</a><br>
+                        <a href="tel:6562808378">(656) 280 8378</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="footer-social">
+                <a href="https://www.facebook.com/lexpraxisjuarez" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/lexpraxis_abogados/" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/enrique-figueroa-garcia-2ba242132/" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p>Copyright © 2025 Lex Praxis | Development by: Clik Graphics</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.link/l6capx" target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // ============================================
+        // LEX PRAXIS - JAVASCRIPT
+        // ============================================
+
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // ============================================
+            // MOBILE MENU TOGGLE
+            // ============================================
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    this.classList.toggle('active');
+                });
+            }
+            
+            // Cerrar menú al hacer clic en un enlace
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    if (mobileMenuToggle) {
+                        mobileMenuToggle.classList.remove('active');
+                    }
+                });
+            });
+            
+            // ============================================
+            // SCROLL TO TOP BUTTON
+            // ============================================
+            const scrollTopBtn = document.getElementById('scrollTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollTopBtn.classList.add('show');
+                } else {
+                    scrollTopBtn.classList.remove('show');
+                }
+            });
+            
+            scrollTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // ============================================
+            // ACTIVE MENU ON SCROLL
+            // ============================================
+            const sections = document.querySelectorAll('section[id]');
+            
+            function activeMenu() {
+                const scrollY = window.pageYOffset;
+                
+                sections.forEach(section => {
+                    const sectionHeight = section.offsetHeight;
+                    const sectionTop = section.offsetTop - 150;
+                    const sectionId = section.getAttribute('id');
+                    const menuLink = document.querySelector(`.nav-menu a[href="#${sectionId}"]`);
+                    
+                    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                        if (menuLink) {
+                            document.querySelectorAll('.nav-menu a').forEach(link => {
+                                link.classList.remove('active');
+                            });
+                            menuLink.classList.add('active');
+                        }
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', activeMenu);
+            
+            // ============================================
+            // SMOOTH SCROLL FOR ANCHOR LINKS
+            // ============================================
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    
+                    if (target) {
+                        const headerOffset = 120;
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // ============================================
+            // ANIMATION ON SCROLL (AOS)
+            // ============================================
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 1000,
+                    easing: 'ease-in-out',
+                    once: true,
+                    offset: 100
+                });
+            }
+            
+            // ============================================
+            // CONSOLE MESSAGE
+            // ============================================
+            console.log('%c Lex Praxis - Bufete de Abogados ', 'background: #D4AF37; color: #1A1A1A; font-size: 16px; padding: 10px;');
+            console.log('%c Desarrollado por Clik Graphics ', 'background: #2C2C2C; color: #C0C0C0; font-size: 12px; padding: 5px;');
+        });
+    </script>
+</body>
+</html>
